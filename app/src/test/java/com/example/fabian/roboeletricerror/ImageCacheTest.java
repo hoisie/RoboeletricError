@@ -1,17 +1,17 @@
 package com.example.fabian.roboeletricerror;
 
-import android.content.Context;
+import static junit.framework.Assert.assertNotNull;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
-
-import static junit.framework.Assert.assertNotNull;
+import org.robolectric.annotation.Config;
 
 
 /**
@@ -21,12 +21,13 @@ import static junit.framework.Assert.assertNotNull;
  */
 
 @RunWith(RobolectricTestRunner.class)
+@Config(constants = BuildConfig.class)
 public class ImageCacheTest {
 
     static Bitmap bmp;
 
-    @BeforeClass
-    public static void setUp() {
+    @Before
+    public void setUp() {
         bmp = BitmapFactory.decodeResource(RuntimeEnvironment.application.getResources(), R.mipmap.ic_launcher);
     }
 
